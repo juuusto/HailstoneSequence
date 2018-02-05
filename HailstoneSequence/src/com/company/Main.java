@@ -49,7 +49,6 @@ public class Main {
     static void calculateNextNumber(int number) {
         if (number == 1) {
             storage.add(number);
-            System.out.println(steps);
             findSecondHighestNumber();
         } else {
             if(number % 2 == 0) { //even
@@ -70,8 +69,7 @@ public class Main {
      * Using apache commons FileUtils, since it's way more clean and easier to read than java IO.
      */
     static void createHTMLFile() throws IOException {
-        File htmlTemplateFile = new File("template.html");
-        System.out.println(htmlTemplateFile.getCanonicalPath());
+        File htmlTemplateFile = new File("template.html");//get data from a template html file.
         String htmlString = FileUtils.readFileToString(htmlTemplateFile,"UTF-8" );
         htmlString = htmlString.replace("$initialNumber", Integer.toString(firstNumber));
         htmlString = htmlString.replace("$steps", Integer.toString(steps));
